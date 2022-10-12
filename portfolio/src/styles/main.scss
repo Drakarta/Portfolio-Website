@@ -1,0 +1,79 @@
+@import url(settings.scss);
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    color: var(--text-primary);
+    font-family: var(--text);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #323232;
+    border-radius: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #292929;
+}
+
+
+body {
+    min-height: 100vh;
+    background-color: var(--primary);
+
+    & section {
+        position: relative;
+        max-height: 100vh;
+        min-height: 100vh;
+        padding: 0px 5% 0px calc(50px + 5%);
+    }
+}
+
+#body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.header-text {
+    font-size: 2.5rem;
+    font-family: var(--header);
+    transition: 0.3s;
+    width: max-content;
+    color: var(--text-primary);
+    
+    & span {
+        font-family: var(--header);
+        color: var(--text-secondary);
+        transition: 0.3s;
+    }
+
+    &:hover {
+        color: var(--text-secondary);
+        transition: 0.3s;
+
+        & span {
+            color: var(--text-primary);
+            transition: 0.3s;
+        }
+    }
+}
+

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Marck+Script&family=Montserrat:wght@600&family=Nanum+Pen+Script&family=Varela+Round&display=swap');
+
+:root {
+    --header: 'Montserrat', sans-serif;
+    --special: 'Marck Script', cursive;
+    --text: 'Varela Round', sans-serif;
+    --audio: 'Audiowide', cursive;
+    --script: 'Nanum Pen Script', cursive;
+
+    --primary: #0b090a;
+    --secondary: #161a1d;
+    --tertiary: #ba181b;
+    --quaternary: #660708;
+    
+    --text-primary: #f5f3f4;
+    --text-secondary: #ec1a1a;
+
+    --header-img: url('../assets/images/background/nebula.jpg');
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --primary: #0b090a;
+        --secondary: #161a1d;
+        --tertiary: #ba181b;
+        --quaternary: #660708;
+        
+        --text-primary: #0b090a;
+        --text-secondary: #ec1a1a;
+    
+        --header-img: url('../assets/images/background/nebula.jpg');  
+    }
+}

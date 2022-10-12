@@ -1,0 +1,44 @@
+.flexx {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flexy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+.about-tabs {
+    width: 400px;
+
+    & button {
+        text-align: center;
+        background-color: var(--secondary);
+        font-size: 1.75rem;
+        color: #949494;
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 10px 10px 0px 0px;
+
+        &:hover span {
+                color: #949494;
+        }
+    }
+}
+
+.about-tabs .active {
+    background-color: var(--quaternary);
+    color: var(--text-primary);
+    &:hover span {
+        color: var(--text-primary);
+    }
+}
+
+.about-text {
+    background-color: var(--quaternary);
+    height: 500px;
+    border-radius: 0px 0px 10px 10px;
+}

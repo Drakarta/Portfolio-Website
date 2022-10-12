@@ -1,0 +1,107 @@
+.side-nav {
+    position: fixed;
+    z-index: 1000;
+    left: -200px;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--secondary);
+    transition: 0.3s;
+    overflow: hidden;
+
+    &:hover {
+        left: 0px;
+        transition: 0.3s;
+        width: 200px;
+    }
+
+    & div {
+        height: 50px;
+    }
+
+    & ul {
+        position: relative;
+        height: calc(100vh - 100px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.3s;
+
+        & li {
+            margin-bottom: 0.5rem;
+
+            &:last-child {
+                margin-bottom: 0rem;
+            }
+        }
+        
+        & button {
+            all: unset;
+            width: 200px;
+            text-align: center;
+            padding: 0.75rem 0rem;
+            background-color: var(--secondary);
+            transition: 0.3s;
+
+            &:hover {
+                background-color: #4c0506;
+                transition: 0.3s;
+            }
+        }
+
+        & li .active {
+            background-color: var(--quaternary);
+            transition: 0.3s;
+        }
+    }
+}
+
+.top {
+    display: flex;
+
+    & img {
+        width: 150px;
+        height: 150px;
+        margin: 0px 25px;
+    }
+}
+
+.nav-icon {
+    position: relative;
+    transition: 0.3s;
+    background-color: var(--secondary);
+    font-size: 2rem;
+    padding: 4px;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    margin: 5px;
+
+    &:hover {
+        transition: 0.3s;
+        background-color: var(--quaternary);
+    }
+}
+
+.nav-show {
+    position: relative; 
+    z-index: 1001; 
+    margin-left: 0px;
+}
+
+.nav-drop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5px;
+    overflow: hidden;
+}
+
+.nav-drop:hover .nav-hide {
+    left: 0px;
+    transition: 0.3s;
+}
+
+.nav-hide {
+    left: -150px;
+    transition: 0.3s;
+}

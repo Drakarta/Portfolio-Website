@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "panelsnap": "^1.3.0"
+  }
+}
