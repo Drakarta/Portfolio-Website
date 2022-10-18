@@ -6,6 +6,11 @@
     box-sizing: border-box;
     color: var(--text-primary);
     font-family: var(--text);
+
+    $small: 480px;
+    $medium: 768px;
+    $large: 976px;
+    $extra-large: 1440px;
 }
 
 html {
@@ -34,6 +39,7 @@ button {
     background: #292929;
 }
 
+@media screen {}
 
 body {
     min-height: 100vh;

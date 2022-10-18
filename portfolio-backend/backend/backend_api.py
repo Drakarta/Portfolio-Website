@@ -5,4 +5,4 @@ backend_api = Blueprint("backend_api", __name__)
 @backend_api.route("/about", methods=["GET", "POST"])
 def index():
     return {
-        "Text": "Test"}
+        "Text": "Job Stevasdasdasdasdens 123"}

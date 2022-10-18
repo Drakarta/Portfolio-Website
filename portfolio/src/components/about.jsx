@@ -1,21 +1,30 @@
-import { useState , useEffect } from 'react'
+import { useState , useEffect, useCallback } from 'react'
 import axios from "axios"
 
-import AboutText from './about_components/about_text'
-import Skills from './about_components/skills'
-import Selfie from './about_components/selfie'
+import AboutText from './sub-componennts/about_text'
+import Skills from './sub-componennts/skills'
+import Selfie from './sub-componennts/selfie'
+import Contact from "./sub-componennts/contact"
 
+import Picture from "../assets/images/puma/20220826_222900.jpg"
 import "../styles/about.scss"
 
-function About() {
+function About(props) {
   const [currentTab, setCurrentTab] = useState("about");
   const [aboutData, setAboutData] = useState({})
+  const [contactAboutState, setContactAboutState] = useState(false)
+  const contactAboutStateHandler = useCallback((newContactAboutState) => {setContactAboutState(newContactAboutState)})
   
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/about").then(
-      (response) => {
-        setAboutData(response.data)})
+    axios.get("/api/about")
+      .then((response) => {setAboutData(response.data)})
   },[])
+
+  function contactAboutButt() {
+    console.log(contactAboutState)
+    setContactAboutState(contactAboutState => !contactAboutState)
+    console.log(contactAboutState)
+  }
 
   function tabChanger(tab) {
     if (tab === "about") {
@@ -31,15 +40,18 @@ function About() {
     <section className="about" data-panel="third">
       <div className="flexx">
         <div className="flexy">
+          <img src={Picture} alt="picture" className="picture" />
+        </div>
+        <div className="flexy">
           <div>
             <div className="about-tabs flexx">
-              <button onClick={() => tabChanger("about")} className={"header-text " + (currentTab === "about" && "active")}>About<span>;</span></button>
-              <button onClick={() => tabChanger("skills")} className={"header-text " + (currentTab === "skills" && "active")}>Skills<span>;</span></button>
-              <button onClick={() => tabChanger("selfie")} className={"header-text " + (currentTab === "selfie" && "active")}>Picture<span>;</span></button>
+              <button onClick={() => tabChanger("about")} id="about" className={"header-text " + (currentTab === "about" && "active")}>About<span>;</span></button>
+              <button onClick={() => tabChanger("skills")} id="skills" className={"header-text " + (currentTab === "skills" && "active")}>Skills<span>;</span></button>
+              <button onClick={() => tabChanger("selfie")} id="selfie" className={"header-text " + (currentTab === "selfie" && "active")}>Picture<span>;</span></button>
             </div>
             <div>
               <div className="about-text">
-                {(currentTab === "about") ? <AboutText aboutData={aboutData}/>
+                {(currentTab === "about") ? <AboutText aboutData={aboutData} contactState={contactAboutState} onContactStateChange={contactAboutStateHandler} />
                 : (currentTab === "skills") ? <Skills/>
                 : (currentTab === "selfie") && <Selfie/>}
               </div>
@@ -47,6 +59,8 @@ function About() {
           </div>
         </div>
       </div>
+      {contactAboutState && console.log(contactAboutState, contactAboutStateHandler, props.formState, props.onFormStateChange)}
+      {(contactAboutState) && <Contact contactState={contactAboutState} onContactStateChange={contactAboutStateHandler} formState={props.formState} onFormStateChange={props.onFormStateChange} />}
     </section>
   )
 }

@@ -1,0 +1,62 @@
+.contact-bg {
+    background-color: #00000050;
+    position: fixed;
+    z-index: 2000;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+}
+
+.contact-container {
+    position: fixed;
+    left: 50%;
+    margin-left: -250px;
+    z-index: 3000;
+    background-color: var(--secondary);
+    min-width: 500px;
+    border-radius: 1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.75rem;
+
+    & label {
+        font-size: 1.15rem;
+    }
+
+    & input, textarea {
+        color: var(--primary);
+        padding: 0.25rem;
+        font-size: 1rem;
+        margin: 0.5rem 2rem;
+        border: none;
+        text-align: left;
+        display: block;
+        border-radius: 0.25rem;
+
+        &[id*= "message"] {
+            height: 200px;
+        }
+    }
+
+    & button[type*="submit"] {
+        position: relative;
+        background-color: var(--quaternary);
+        border-radius: 0.4rem;
+        width: 75px;
+        display: inline-block;
+        padding: 0.5rem ;
+        text-align: center;
+        font-size: 1.15rem;
+        transition: 0.3s;
+        margin-top: 0.5rem;
+
+        &:hover {
+            background-color: var(--tertiary);
+            transition: 0.3s;
+        }
+    }
+}

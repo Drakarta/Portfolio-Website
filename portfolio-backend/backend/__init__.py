@@ -8,6 +8,6 @@ def create_app():
 
     from .backend_api import backend_api
 
-    app.register_blueprint(backend_api, url_prefix="/")
+    app.register_blueprint(backend_api, url_prefix="/api")
 
     return app
