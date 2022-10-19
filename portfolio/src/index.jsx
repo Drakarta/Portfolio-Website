@@ -12,10 +12,9 @@ import Footer from './components/footer';
 import "./styles/main.scss";
 
 function Index() {
-  
-  // const panelSnapInstance = new PanelSnap({
-  //   panelSelector: "> #root > #body > section"
-  // })
+  const panelSnapInstance = new PanelSnap({
+    panelSelector: "> #root > #body > section"
+  })
 
   function formReducer(state, action) {
     switch (action.type) {
