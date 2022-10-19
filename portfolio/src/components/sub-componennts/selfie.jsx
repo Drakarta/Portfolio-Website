@@ -1,7 +1,9 @@
 function Selfie() {
   
   return (
-    <div>1</div>
+    <div>
+      <img />
+    </div>
   )
 }
 

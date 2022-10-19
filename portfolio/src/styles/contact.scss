@@ -10,6 +10,8 @@
 .contact-container {
     position: fixed;
     left: 50%;
+    top: 50%;
+    margin-top: -258px;;
     margin-left: -250px;
     z-index: 3000;
     background-color: var(--secondary);

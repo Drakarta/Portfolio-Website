@@ -1,15 +1,10 @@
 import { useState, useCallback } from "react"
 
-import Contact from './sub-componennts/contact'
-
 import "../styles/header.scss"
 
 function Header(props) {
-  const [contactState, setContactState] = useState(false)
-  const contactStateHandler = useCallback((newContactState) => {setContactState(newContactState)})
-  
-  function contactButt() {
-    setContactState(contactState => !contactState)
+  function contactStateHandler() {
+    props.onContactStateChange(!props.contactState)
   }
 
   return (
@@ -20,13 +15,8 @@ function Header(props) {
         <div><span className="header-text">I<span>'</span>m</span><span className="header-text">a </span><span className="header-text">Programmer<span>.</span></span></div>
       </div>
       <div>
-        <button onClick={() => contactButt()} className="contact-butt">Contact</button>  
+        <button onClick={() => contactStateHandler()} className="contact-butt">Contact</button>  
       </div>
-      {(contactState) && 
-      <Contact contactState={contactState} 
-               onContactStateChange={contactStateHandler} 
-               formState={props.formState} 
-               onFormStateChange={props.onFormStateChange} />}
     </section>
   )
 }

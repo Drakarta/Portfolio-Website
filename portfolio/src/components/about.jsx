@@ -12,19 +12,11 @@ import "../styles/about.scss"
 function About(props) {
   const [currentTab, setCurrentTab] = useState("about");
   const [aboutData, setAboutData] = useState({})
-  const [contactAboutState, setContactAboutState] = useState(false)
-  const contactAboutStateHandler = useCallback((newContactAboutState) => {setContactAboutState(newContactAboutState)})
   
   useEffect(() => {
     axios.get("/api/about")
       .then((response) => {setAboutData(response.data)})
   },[])
-
-  function contactAboutButt() {
-    console.log(contactAboutState)
-    setContactAboutState(contactAboutState => !contactAboutState)
-    console.log(contactAboutState)
-  }
 
   function tabChanger(tab) {
     if (tab === "about") {
@@ -51,7 +43,7 @@ function About(props) {
             </div>
             <div>
               <div className="about-text">
-                {(currentTab === "about") ? <AboutText aboutData={aboutData} contactState={contactAboutState} onContactStateChange={contactAboutStateHandler} />
+                {(currentTab === "about") ? <AboutText aboutData={aboutData} onContactStateChange={props.onContactStateChange} contactState={props.contactState} />
                 : (currentTab === "skills") ? <Skills/>
                 : (currentTab === "selfie") && <Selfie/>}
               </div>
@@ -59,8 +51,6 @@ function About(props) {
           </div>
         </div>
       </div>
-      {contactAboutState && console.log(contactAboutState, contactAboutStateHandler, props.formState, props.onFormStateChange)}
-      {(contactAboutState) && <Contact contactState={contactAboutState} onContactStateChange={contactAboutStateHandler} formState={props.formState} onFormStateChange={props.onFormStateChange} />}
     </section>
   )
 }

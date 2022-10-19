@@ -1,8 +1,9 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import PanelSnap from 'panelsnap';
 
 import NavBar from './components/navbar';
+import Contact from './components/sub-componennts/contact'
 import About from './components/about';
 import Project from './components/project'
 import Header from './components/header';
@@ -12,9 +13,9 @@ import "./styles/main.scss";
 
 function Index() {
   
-  const panelSnapInstance = new PanelSnap({
-    panelSelector: "> #root > #body > section"
-  })
+  // const panelSnapInstance = new PanelSnap({
+  //   panelSelector: "> #root > #body > section"
+  // })
 
   function formReducer(state, action) {
     switch (action.type) {
@@ -51,17 +52,23 @@ function Index() {
 
   let initialFormState = { name: "", email: "", message: ""}
   const [formState, setFormState] = useReducer(formReducer, initialFormState)
+  const [contactState, setContactState] = useState(false)
+  const contactStateHandler = useCallback((newContactState) => {setContactState(newContactState)})
 
   return (
     <React.StrictMode>
       <NavBar/>
+      {(contactState) && 
+      <Contact contactState={contactState} 
+               onContactStateChange={contactStateHandler} 
+               formState={formState} 
+               onFormStateChange={formStateChange} />}
       <div id='body'>
-        <Header formState={formState} onFormStateChange={formStateChange} />
+        <Header contactState={contactState} onContactStateChange={contactStateHandler} />
         <Project/>
-        <About formState={formState} onFormStateChange={formStateChange} />
+        <About contactState={contactState} onContactStateChange={contactStateHandler} />
         <Footer/>
-      </div>
-      
+      </div>  
     </React.StrictMode>
   )
 }
