@@ -6,7 +6,7 @@ import Skills from './sub-componennts/skills'
 import Selfie from './sub-componennts/selfie'
 import Contact from "./sub-componennts/contact"
 
-import Picture from "../assets/images/puma/20220826_222900.jpg"
+  import Picture from "../assets/images/puma/20220826_222900.jpg"
 import "../styles/about.scss"
 
 function About(props) {

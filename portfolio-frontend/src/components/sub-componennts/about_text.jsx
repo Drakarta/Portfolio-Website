@@ -14,7 +14,9 @@ function AboutText(props) {
   return (
     <>
       <div style={{display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%"}}>
-        <ReactMarkdown children={props.aboutData.Text}/>
+        <div>
+          <ReactMarkdown children={props.aboutData.Text}/>
+        </div>
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
           <div className="about-text-icons">
             <button onClick={() => window.open("https://github.com/Drakarta")}><img src={GithubImg} alt="github" /></button>

@@ -13,7 +13,6 @@ function NavBar() {
         <li><button data-panel="first" id="button">Home</button></li>
         <li><button data-panel="second" id="button">Project</button></li>
         <li><button data-panel="third" id="button">About</button></li>
-        <li><button data-panel="fourth" id="button">Footer</button></li>
       </ul>
       <div className="nav-butt">
         <div className="nav-drop">

@@ -55,6 +55,7 @@
     border-radius: 0px 0px 10px 10px;
     padding: 1rem;
     font-size: 1.125rem;
+    max-width: 400px;
 }
 
 .about-text-icons {
@@ -78,4 +79,46 @@
 
 .picture {
     width: 300px;
+}
+
+.pic-tab {
+    width: 100%;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: calc((100% - 32px)/3) calc((100% - 32px)/3) calc((100% - 32px)/3);
+    grid-template-rows: auto auto auto;
+    gap: 16px;
+
+    & button {
+        max-width: 100%;
+        aspect-ratio: 1/1;
+        background-color: var(--text-primary);
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        border-radius: 0.25rem;
+        overflow: hidden;
+
+        & img {
+            z-index: 5;
+            position: absolute;
+            width: 112px;
+        }
+
+        & div {
+            display: none;
+            text-align: center;
+            margin-bottom: 10px;
+            z-index: 10;
+            position: relative;
+            color: var(--primary);
+            font-weight: 900;
+        }
+
+        // &:hover div {
+        //     display: block;
+        // }
+    }
 }

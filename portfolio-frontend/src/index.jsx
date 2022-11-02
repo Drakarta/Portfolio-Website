@@ -7,7 +7,6 @@ import Contact from './components/sub-componennts/contact'
 import About from './components/about';
 import Project from './components/project'
 import Header from './components/header';
-import Footer from './components/footer';
 
 import "./styles/main.scss";
 
@@ -53,19 +52,10 @@ function Index() {
   const [formState, setFormState] = useReducer(formReducer, initialFormState)
   const [contactState, setContactState] = useState(false)
   const contactStateHandler = useCallback((newContactState) => {setContactState(newContactState)})
-  const [Loading, setLoading] = useState(false)
-
-  useEffect(() =>{
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 8000)
-  }, [])
 
   return (
-    <React.StrictMode>
-      {/* <LoadingScreen /> */}
-      <NavBar/>
+    <>
+      <NavBar />
       {(contactState) && 
       <Contact contactState={contactState} 
                onContactStateChange={contactStateHandler} 
@@ -75,9 +65,8 @@ function Index() {
         <Header contactState={contactState} onContactStateChange={contactStateHandler} />
         <Project/>
         <About contactState={contactState} onContactStateChange={contactStateHandler} />
-        <Footer/>
       </div>  
-    </React.StrictMode>
+    </>
   )
 }
 
